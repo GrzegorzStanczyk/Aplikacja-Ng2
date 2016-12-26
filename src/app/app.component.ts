@@ -8,16 +8,17 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'witaj w kursie Angular!';
 
-  get getAge() {
-    return (new Date()).getFullYear() - this.person.birthdate;
-  }
+  counter = 0;
+  counter2 = 0;
+  
+// Funkcja wykonywana w momencie tworzenia klasy
+  constructor() {
+    setInterval(()=>{
+      this.counter++;
+    }, 500);
 
-  person = {
-    name: 'Testory',
-    birthdate: 1987,
-    company: {
-      name: 'Eduweb'
-    },
-    bio: 'Coś do wyświetlenia <script>widnow.alert("tekst")</script>'
+    setInterval(()=>{
+      this.counter2++;
+    }, 2000)
   }
 }
