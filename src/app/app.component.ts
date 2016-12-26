@@ -12,8 +12,10 @@ export class AppComponent {
     name: 'The best of Eduweb',
     tracks: 23,
     color: '#FF0000',
-    favourites: true
+    favourite: true
   }
+
+  size = 120;
 
   save(event) {
     console.log('Zapisano', event);
