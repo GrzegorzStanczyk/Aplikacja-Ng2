@@ -1,32 +1,68 @@
 <div class="container">
-  <div class="row">
-    <h1>
-      {{title}}
-    </h1>
-    <div class="card">
-      <div class="card-block">
-        <h4 class="card-title">Playlista</h4>
-        <p class="card-text">Opis playlisty.</p>
-      </div>
-      <div class="card-block">
-        <div class="form-group">
-          <label for="">Name:</label>
-          <!--Sposób na odniesienie się do właściwości przez [] nawaias kwadratowy-->
-          <input type="text" [value]="playlist.name" class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Tracks:</label>
-          <input type="text" [value]="playlist.tracks + ' utworów'" disabled class="form-control">
-        </div>
-        <div class="form-group">
-          <label for="">Color:</label>
-          <input type="color" [value]="playlist.color">
-          <div class="form-group">
-          <label for="">
-            <input type="checkbox" [checked]="playlist.favourites"> Favourite:</label>
-        </div>  
-        </div>
-      </div>
+  <div class="row mt-1">
+    <div class="col-xs">
+      <h1>
+        {{title}}
+      </h1>
     </div>
-  </div>
-</div>
+  </div><!--row-->
+  
+  <div class="row mt-1">
+    <div class="col-xs">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th> # </th>
+            <th> Nazwa </th>
+            <th> Utworów </th>
+            <th> Ulubiona </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td> 1 </td>
+            <td> The Best of Eduweb </td>
+            <td> 23 </td>
+            <td> true </td>
+          </tr>
+          <tr>
+            <td> 2 </td>
+            <td> Angular Greatest Hits </td>
+            <td> 2 </td>
+            <td> false </td>
+          </tr>
+        </tbody>
+      </table>
+    </div><!--col-xs-->
+    <div class="col-xs">
+      <div class="card">
+        <div class="card-block">
+          <h4 class="card-title">Playlista</h4>
+          <p class="card-text">Opis playlisty.</p>
+        </div>
+        <div class="card-block">
+          <div class="form-group">
+            <label for="">Name:</label>
+            <!--Sposób na odniesienie się do właściwości przez [] nawaias kwadratowy-->
+            <input type="text" [value]="playlist.name" class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Tracks:</label>
+            <input type="text" [value]="playlist.tracks + ' utworów'" disabled class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Color:</label>
+            <input type="color" [value]="playlist.color">          
+          </div>
+          <div class="form-group">
+            <label for="">
+              <input type="checkbox" [checked]="playlist.favourites"> Favourite:</label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success float-xs-right">Zapisz</button>
+          </div>
+        </div><!--card-block-->
+      </div><!--card-->
+    </div><!--col-xs-->
+  </div><!--row-->
+</div><!--container-->
