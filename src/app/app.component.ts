@@ -8,17 +8,15 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'witaj w kursie Angular!';
 
-  counter = 0;
-  counter2 = 0;
-  
+  playlist = {
+    name: 'The best of Eduweb',
+    tracks: 23,
+    color: '#FF0000',
+    favourites: true
+  }
+
 // Funkcja wykonywana w momencie tworzenia klasy
   constructor() {
-    setInterval(()=>{
-      this.counter++;
-    }, 500);
-
-    setInterval(()=>{
-      this.counter2++;
-    }, 2000)
+    
   }
 }
