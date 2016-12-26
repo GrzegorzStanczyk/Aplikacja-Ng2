@@ -6,5 +6,18 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'witaj w kursie Angular!';
+
+  get getAge() {
+    return (new Date()).getFullYear() - this.person.birthdate;
+  }
+
+  person = {
+    name: 'Testory',
+    birthdate: 1987,
+    company: {
+      name: 'Eduweb'
+    },
+    bio: 'Coś do wyświetlenia <script>widnow.alert("tekst")</script>'
+  }
 }
