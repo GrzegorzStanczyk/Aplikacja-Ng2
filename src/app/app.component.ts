@@ -15,6 +15,10 @@ export class AppComponent {
     favourites: true
   }
 
+  save(event) {
+    console.log('Zapisano', event);
+  }
+
 // Funkcja wykonywana w momencie tworzenia klasy
   constructor() {
     
