@@ -10,6 +10,9 @@
     .playlist-row {
       border-bottom: 2px solid transparent;
     }
+    .hovered {
+      font-size: 130%;
+    }
   </style>
   <div class="row mt-1">
     <div class="col-xs">
@@ -24,11 +27,14 @@
         </thead>
         <tbody>
           <!--ngClass może słuzyć do ustawiana stanów klas-->
-          <!--ngStyle ustawia style dla klas-->
+          <!--ngStyle modyfikuje style klas-->
           <tr class="" 
           [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
-          [ngStyle]="getPlaylistStyle(playlist)"
-          (click)="selected = playlist">
+          [ngStyle]="{borderBottomColor: playlist.color, color: hovered ? playlist.color : '', fontSize: hovered ? playlist.size : ''}"
+          (click)="selected = playlist"
+          (mouseenter)="hovered = true"
+          (mouseleave)="hovered = false"
+          >
             <td> 1 </td>
             <td> {{playlist.name}} </td>
             <td> 23 </td>
@@ -39,7 +45,6 @@
               (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
             </td>
           </tr>
-          ngStyle
           <tr (click)="selected = null"
           [class.table-active]="selected == null">
             <td> 2 </td>

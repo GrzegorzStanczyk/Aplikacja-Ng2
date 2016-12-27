@@ -13,24 +13,24 @@ export class AppComponent {
     tracks: 23,
     color: '#FF0000',
     favourite: true,
-    size: 130
+    size: `${130}%`
   }
 
   selected = null;
-
+  mouseenter = null;
   
 
   save(event) {
     console.log('Zapisano', event);
   }
 
-  getPlaylistStyle(playlist) {
-    return {
-      borderBottomColor: playlist.color, 
-      color: playlist.color,
-      fontSize: playlist.size+"%"
-    }
-  }
+  // getPlaylistStyle(playlist) {
+  //   return {
+  //     borderBottomColor: playlist.color, 
+  //     color: playlist.color,
+  //     fontSize: playlist.size+"%"
+  //   }
+  // }
 
 // Funkcja wykonywana w momencie tworzenia klasy
   constructor() {
