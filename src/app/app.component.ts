@@ -12,13 +12,10 @@ export class AppComponent {
     name: 'The best of Eduweb',
     tracks: 23,
     color: '#FF0000',
-    favourite: true,
-    size: 130
+    favourite: true
   }
 
-  selected = null;
-
-  
+  selected = null;  
 
   save(event) {
     console.log('Zapisano', event);
@@ -26,9 +23,7 @@ export class AppComponent {
 
   getPlaylistStyle(playlist) {
     return {
-      borderBottomColor: playlist.color, 
-      color: playlist.color,
-      fontSize: playlist.size+"%"
+      borderBottomColor: playlist.color
     }
   }
 
