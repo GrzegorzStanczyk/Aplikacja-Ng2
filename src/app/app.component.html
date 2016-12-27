@@ -23,8 +23,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="playlist-row" 
-          [class.table-active]="selected == playlist" 
+          <!--ngClass jest dobrym rozwiązaniem dla większej liczby klas dla danego elementu-->
+          <tr class="" 
+          [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
           [style.borderBottomColor]="playlist.color" 
           [style.color]="playlist.color" 
           [style.fontSize.%]="size" 
@@ -34,7 +35,9 @@
             <td> 23 </td>
             <td>
               <label for="">
-              <input type="checkbox" [checked]="playlist.favourite" (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
+              <input type="checkbox" 
+              [checked]="playlist.favourite" 
+              (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
             </td>
           </tr>
           <tr (click)="selected = null"
