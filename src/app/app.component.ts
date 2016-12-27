@@ -15,6 +15,10 @@ export class AppComponent {
     favourite: true
   }
 
+  edited = {
+
+  }
+
   selected = null;  
 
   save(event) {
