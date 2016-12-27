@@ -23,7 +23,12 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="playlist-row" [style.borderBottomColor]="playlist.color" [style.color]="playlist.color" [style.fontSize.%]="size">
+          <tr class="playlist-row" 
+          [class.table-active]="selected == playlist" 
+          [style.borderBottomColor]="playlist.color" 
+          [style.color]="playlist.color" 
+          [style.fontSize.%]="size" 
+          (click)="selected = playlist">
             <td> 1 </td>
             <td> {{playlist.name}} </td>
             <td> 23 </td>
@@ -32,7 +37,8 @@
               <input type="checkbox" [checked]="playlist.favourite" (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
             </td>
           </tr>
-          <tr>
+          <tr (click)="selected = null"
+          [class.table-active]="selected == null">
             <td> 2 </td>
             <td> Angular Greatest Hits </td>
             <td> 2 </td>
@@ -50,7 +56,8 @@
         <div class="card-block">
           <div class="form-group">
             <label for="">Name:</label>
-            <!--Sposób na odniesienie się do właściwości przez [] nawaias kwadratowy-->
+            <!--Sposób na odniesienie się do właściwości i jej wyświtlenie przez [] nawaias kwadratowy-->
+            <!--Na zdarzenie (keyup) wykonuję kod "playlist.name = $event.target.value", który pobiera wartość lub stan elementu i aktualizuje dane-->
             <input type="text" [value]="playlist.name" (keyup)="playlist.name = $event.target.value" class="form-control">
           </div>
           <div class="form-group">
@@ -67,7 +74,7 @@
           </div>
           <div class="form-group">
             <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
-            <!--Jeśli chce pobierać zdarzenie na komponencie to używam () np. (click)="save($event), a jeśli przekazuje do komponentu to [] np. [checked]="playlist.favourites",-->
+            <!--Jeśli chce pobierać zdarzenie które się dzieje na komponencie to używam () np. (click)="save($event), a jeśli przekazuje dane do komponentu to [] np. [checked]="playlist.favourites",-->
           </div>
         </div><!--card-block-->
       </div><!--card-->

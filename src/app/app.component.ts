@@ -15,6 +15,8 @@ export class AppComponent {
     favourite: true
   }
 
+  selected = null;
+
   size = 120;
 
   save(event) {
