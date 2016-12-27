@@ -23,12 +23,11 @@
           </tr>
         </thead>
         <tbody>
-          <!--ngClass jest dobrym rozwiązaniem dla większej liczby klas dla danego elementu-->
+          <!--ngClass może słuzyć do ustawiana stanów klas-->
+          <!--ngStyle ustawia style dla klas-->
           <tr class="" 
           [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
-          [style.borderBottomColor]="playlist.color" 
-          [style.color]="playlist.color" 
-          [style.fontSize.%]="size" 
+          [ngStyle]="getPlaylistStyle(playlist)"
           (click)="selected = playlist">
             <td> 1 </td>
             <td> {{playlist.name}} </td>
@@ -40,6 +39,7 @@
               (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
             </td>
           </tr>
+          ngStyle
           <tr (click)="selected = null"
           [class.table-active]="selected == null">
             <td> 2 </td>
