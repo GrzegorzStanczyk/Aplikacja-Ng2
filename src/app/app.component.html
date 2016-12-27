@@ -54,34 +54,33 @@
           <h4 class="card-title">Playlista</h4>
           <p class="card-text">Opis playlisty.</p>
         </div>
-        <template [ngIf]="selected != null">
-          <div class="card-block">
-            <div class="form-group">
-              <label for="">Name:</label>
-              <!--Sposób na odniesienie się do właściwości i jej wyświtlenie przez [] nawaias kwadratowy-->
-              <!--Na zdarzenie (keyup) wykonuję kod "playlist.name = $event.target.value", który pobiera wartość lub stan elementu i aktualizuje dane-->
-              <input type="text" [ngModel]="selected.name" (ngModelChange)="selected.name = $event" class="form-control">
-                                      <!--[xxx]="zmienna" (xxxChange)="zmienna = $event"
-                                          [(xxx)] = "zmienna"-->
-            </div>
-            <div class="form-group">
-              <label for="">Tracks:</label>
-              <input type="text" [value]="selected.tracks + ' utworów'" disabled class="form-control">
-            </div>
-            <div class="form-group">
-              <label for="">Color:</label>
-              <input type="color" [(ngModel)]="selected.color">          
-            </div>
-            <div class="form-group">
-              <label for="">
-                <input type="checkbox" [(ngModel)]="selected.favourite"> Ulubiona</label>
-            </div>
-            <div class="form-group">
-              <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
-              <!--Jeśli chce pobierać zdarzenie które się dzieje na komponencie to używam () np. (click)="save($event), a jeśli przekazuje dane do komponentu to [] np. [checked]="playlist.favourites",-->
-            </div>
-          </div><!--card-block-->
-        </template>
+        <!--* odpina element od drzewa DOM i zamienia na szablon-->
+        <div *ngIf="selected != null" class="card-block">
+          <div class="form-group">
+            <label for="">Name:</label>
+            <!--Sposób na odniesienie się do właściwości i jej wyświtlenie przez [] nawaias kwadratowy-->
+            <!--Na zdarzenie (keyup) wykonuję kod "playlist.name = $event.target.value", który pobiera wartość lub stan elementu i aktualizuje dane-->
+            <input type="text" [ngModel]="selected.name" (ngModelChange)="selected.name = $event" class="form-control">
+                                    <!--[xxx]="zmienna" (xxxChange)="zmienna = $event"
+                                        [(xxx)] = "zmienna"-->
+          </div>
+          <div class="form-group">
+            <label for="">Tracks:</label>
+            <input type="text" [value]="selected.tracks + ' utworów'" disabled class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Color:</label>
+            <input type="color" [(ngModel)]="selected.color">          
+          </div>
+          <div class="form-group">
+            <label for="">
+              <input type="checkbox" [(ngModel)]="selected.favourite"> Ulubiona</label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
+            <!--Jeśli chce pobierać zdarzenie które się dzieje na komponencie to używam () np. (click)="save($event), a jeśli przekazuje dane do komponentu to [] np. [checked]="playlist.favourites",-->
+          </div>
+        </div><!--card-block-->        
       </div><!--card-->
     </div><!--col-xs-->
   </div><!--row-->
