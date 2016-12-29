@@ -24,27 +24,23 @@
         </thead>
 
         <tbody>
-          <tr class="" 
+          <!--let zmienna lokalna (stała), nie zmienia watości po iteracji pętli-->
+          <tr *ngFor="let playlist of playlists, let i = index"
+          class="playlist-row" 
           [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
           [ngStyle]="getPlaylistStyle(playlist)"
           (click)="select(playlist)">
-            <td> 1 </td>
+            <td> {{i+1}}. </td>
             <td> {{playlist.name}} </td>
-            <td> 23 </td>
+            <td> {{playlist.tracks}} </td>
             <td>
               <label for="">
               <input type="checkbox" 
-              [(ngModel)]="playlist.favourite"> Ulubiona</label>
+              [(ngModel)]="playlist.favourite"
+              (click)="$event.stopPropagation()"> Ulubiona</label>
             </td>
           </tr>
-          <tr (click)="select(null)"
-          [class.table-active]="selected == null">
-            <td> 2 </td>
-            <td> Angular Greatest Hits </td>
-            <td> 2 </td>
-            <td> false </td>
-          </tr>
-        </tbody>        
+        </tbody>
       </table>
 
       <div class="form-group">
@@ -66,10 +62,12 @@
 
         <div *ngSwitchCase="'selected'" class="card">
           <div class="card-block">
-            <h4 class="card-title">Playlista "{{playlist.name}}</h4>
+            <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
+            <h4 class="card-title">Playlista "{{selected.name}}</h4>
             <p class="card-text">Wybrana playlista</p>
             <div class="form-group">
-              <button class="btn btn-default float-xs-right" (click)="edit(playlist)">Edytuj</button>
+              <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
+              <button class="btn btn-default float-xs-right" (click)="edit(selected)">Edytuj</button>
             </div>
           </div>
         </div>
@@ -85,7 +83,7 @@
               <label for="">Name:</label>
               <!--Sposób na odniesienie się do właściwości i jej wyświtlenie przez [] nawaias kwadratowy-->
               <!--Na zdarzenie (keyup) wykonuję kod "playlist.name = $event.target.value", który pobiera wartość lub stan elementu i aktualizuje dane-->
-              <input type="text" [ngModel]="selected.name" (ngModelChange)="selected.name = $event" class="form-control">
+              <input type="text" [(ngModel)]="selected.name" class="form-control">
                                       <!--[xxx]="zmienna" (xxxChange)="zmienna = $event"
                                           [(xxx)] = "zmienna"-->
             </div>

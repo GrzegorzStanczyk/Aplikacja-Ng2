@@ -14,16 +14,26 @@ export class AppComponent {
 
   }
 
-  mode = "none";  
+  mode = "none";
 
-  playlist = {
-    name: 'The best of Eduweb',
-    tracks: 23,
-    color: '#FF0000',
-    favourite: true
-  }
+  playlists = [
+    {
+      name: 'The best of Eduweb',
+      tracks: 23,
+      color: '#0000FF',
+      favourite: false
+    },
+    {
+      name: 'Angular Greatest Hits',
+      tracks: 2,
+      color: '#FF0000',
+      favourite: true
+    }
+  ]
 
   select(playlist) {
+    // zapobiegnięcie znikania okna playlisty podczas klikania albumu na liście. 
+    if(playlist !== this.selected)
     this.mode = "selected";
     this.selected = playlist;
   }
@@ -47,6 +57,9 @@ export class AppComponent {
     }
   }
 
+  save(event) {
+    console.log("Zapisano", event)
+  }
 // Funkcja wykonywana w momencie tworzenia klasy
   constructor() {
     
