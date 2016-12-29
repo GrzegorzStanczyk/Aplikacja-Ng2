@@ -1,0 +1,103 @@
+<style>
+  .playlist-row {
+    border-bottom: 2px solid transparent;
+  }
+</style>
+<div class="row mt-1">
+  <div class="col-xs">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th> # </th>
+          <th> Nazwa </th>
+          <th> Utworów </th>
+          <th> Ulubiona </th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <!--let zmienna lokalna (stała), nie zmienia watości po iteracji pętli-->
+        <tr *ngFor="let playlist of playlists, let i = index"
+        class="playlist-row" 
+        [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
+        [ngStyle]="getPlaylistStyle(playlist)"
+        (click)="select(playlist)">
+          <td> {{i+1}}. </td>
+          <td> {{playlist.name}} </td>
+          <td> {{playlist.tracks}} </td>
+          <td>
+            <label for="">
+            <input type="checkbox" 
+            [(ngModel)]="playlist.favourite"
+            (click)="$event.stopPropagation()"> Ulubiona</label>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="form-group">
+      <button class="btn btn-success float-xs-right" (click)="createNew($event)">Nowa Playlista</button>
+    </div>
+
+  </div><!--col-xs-->
+  
+  <div class="col-xs">
+    
+    <div [ngSwitch] = "mode">
+
+      <div *ngSwitchDefault class="card">
+        <div class="card-block">
+          <h4 class="card-title">Playlista</h4>
+          <p class="card-text">Wybierz playlistę</p>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'selected'" class="card">
+        <div class="card-block">
+          <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
+          <h4 class="card-title">Playlista "{{selected.name}}</h4>
+          <p class="card-text">Wybrana playlista</p>
+          <div class="form-group">
+            <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
+            <button class="btn btn-default float-xs-right" (click)="edit(selected)">Edytuj</button>
+          </div>
+        </div>
+      </div>
+
+      <div *ngSwitchCase="'edit'" class="card">
+        <div class="card-block">
+          <h4 class="card-title">Playlista</h4>
+          <p class="card-text">Opis playlisty.</p>
+        </div>
+        <!--* odpina element od drzewa DOM i zamienia na szablon-->
+        <div class="card-block">
+          <div class="form-group">
+            <label for="">Name:</label>
+            <!--Sposób na odniesienie się do właściwości i jej wyświtlenie przez [] nawaias kwadratowy-->
+            <!--Na zdarzenie (keyup) wykonuję kod "playlist.name = $event.target.value", który pobiera wartość lub stan elementu i aktualizuje dane-->
+            <input type="text" [(ngModel)]="selected.name" class="form-control">
+                                    <!--[xxx]="zmienna" (xxxChange)="zmienna = $event"
+                                        [(xxx)] = "zmienna"-->
+          </div>
+          <div class="form-group">
+            <label for="">Tracks:</label>
+            <input type="text" [value]="selected.tracks + ' utworów'" disabled class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="">Color:</label>
+            <input type="color" [(ngModel)]="selected.color">          
+          </div>
+          <div class="form-group">
+            <label for="">
+              <input type="checkbox" [(ngModel)]="selected.favourite"> Ulubiona</label>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>
+            <!--Jeśli chce pobierać zdarzenie które się dzieje na komponencie to używam () np. (click)="save($event), a jeśli przekazuje dane do komponentu to [] np. [checked]="playlist.favourites",-->
+          </div>
+        </div><!--card-block-->
+      </div><!--edited-->
+
+    </div><!--ngSwitch-->
+  </div><!--col-xs-->
+</div><!--row-->
