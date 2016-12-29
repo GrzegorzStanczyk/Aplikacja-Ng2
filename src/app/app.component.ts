@@ -8,6 +8,14 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'witaj w kursie Angular!';
 
+  selected = null;
+
+  edited = {
+
+  }
+
+  mode = "none";  
+
   playlist = {
     name: 'The best of Eduweb',
     tracks: 23,
@@ -15,14 +23,22 @@ export class AppComponent {
     favourite: true
   }
 
-  edited = {
-
+  select(playlist) {
+    this.mode = "selected";
+    this.selected = playlist;
   }
 
-  selected = null;  
-
-  save(event) {
-    console.log('Zapisano', event);
+  edit(playlist) {
+    this.mode = "edit";
+    this.edited = playlist;
+    this.selected = playlist;
+  }
+  
+  createNew() {
+    this.mode = "edut";
+    var newPlaylist = {};
+    this.selected = newPlaylist;
+    this.edited = newPlaylist;
   }
 
   getPlaylistStyle(playlist) {
