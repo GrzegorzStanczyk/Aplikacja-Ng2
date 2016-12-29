@@ -35,7 +35,7 @@ export class AppComponent {
   }
   
   createNew() {
-    this.mode = "edut";
+    this.mode = "edit";
     var newPlaylist = {};
     this.selected = newPlaylist;
     this.edited = newPlaylist;
