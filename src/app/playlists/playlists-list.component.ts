@@ -32,7 +32,11 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
       </tbody>
     </table>
   `,
-  styles: []
+  styles: [`
+    .playlist-row {
+      border-bottom: 2px solid transparent;
+    }
+  `]
 })
 export class PlaylistsListComponent implements OnInit {
 
