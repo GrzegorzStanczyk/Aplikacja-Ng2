@@ -39,9 +39,11 @@ export class PlaylistsListComponent implements OnInit {
   @Output('selected')
   onSelected = new EventEmitter()
 
-  // Dzięki temu mogę przekazywać playlists do środka by móc go renderować
   @Input()
   playlists;  
+
+  @Input()
+  selected;  
 
   constructor() { }
 

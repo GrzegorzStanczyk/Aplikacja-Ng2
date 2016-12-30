@@ -7,7 +7,7 @@
   <div class="col-xs">
     <h4>Playlisty</h4>
 
-    <playlists-list (selected)="select($event)" [playlists]="playlists"></playlists-list>
+    <playlists-list [selected]="selected" (selected)="select($event)" [playlists]="playlists"></playlists-list>
 
     <div class="form-group">
       <button class="btn btn-success float-xs-right" (click)="createNew($event)">Nowa Playlista</button>
@@ -21,17 +21,7 @@
 
       <content-card title="Playlista" content="Wybierz playlistę!!!" *ngSwitchDefault></content-card>
 
-      <div *ngSwitchCase="'selected'" class="card">
-        <div class="card-block">
-          <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
-          <h4 class="card-title">Playlista "{{selected.name}}</h4>
-          <p class="card-text">Wybrana playlista</p>
-          <div class="form-group">
-            <!--playlisy->selected dzięki temu pracujemy na elemencie zaznaczonym-->
-            <button class="btn btn-default float-xs-right" (click)="edit(selected)">Edytuj</button>
-          </div>
-        </div>
-      </div>
+      <playlist-detail [playlist]="selected" (editPlaylist)="edit($event)" *ngSwitchCase="'selected'"></playlist-detail>
 
       <playlist-form [playlist]="selected" *ngSwitchCase="'edit'" ></playlist-form>
 
