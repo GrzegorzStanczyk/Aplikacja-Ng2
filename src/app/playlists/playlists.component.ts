@@ -52,11 +52,7 @@ export class PlaylistsComponent implements OnInit {
     this.edited = newPlaylist;
   }
 
-  getPlaylistStyle(playlist) {
-    return {
-      borderBottomColor: playlist.color
-    }
-  }
+  
 
   save(event) {
     console.log("Zapisano", event)

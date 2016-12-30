@@ -6,35 +6,8 @@
 <div class="row mt-1">
   <div class="col-xs">
     <h4>Playlisty</h4>
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th> # </th>
-          <th> Nazwa </th>
-          <th> Utworów </th>
-          <th> Ulubiona </th>
-        </tr>
-      </thead>
 
-      <tbody>
-        <!--let zmienna lokalna (stała), nie zmienia watości po iteracji pętli-->
-        <tr *ngFor="let playlist of playlists, let i = index"
-        class="playlist-row" 
-        [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
-        [ngStyle]="getPlaylistStyle(playlist)"
-        (click)="select(playlist)">
-          <td> {{i+1}}. </td>
-          <td> {{playlist.name}} </td>
-          <td> {{playlist.tracks}} </td>
-          <td>
-            <label for="">
-            <input type="checkbox" 
-            [(ngModel)]="playlist.favourite"
-            (click)="$event.stopPropagation()"> Ulubiona</label>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <playlists-list (selected)="select($event)" [playlists]="playlists"></playlists-list>
 
     <div class="form-group">
       <button class="btn btn-success float-xs-right" (click)="createNew($event)">Nowa Playlista</button>
