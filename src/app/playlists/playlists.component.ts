@@ -47,7 +47,12 @@ export class PlaylistsComponent implements OnInit {
   
   createNew() {
     this.mode = "edit";
-    var newPlaylist = {};
+    var newPlaylist = {
+      name: '',
+      tracks: 0,
+      color: '#FF0000',
+      favourite: false
+    };
     this.selected = newPlaylist;
     this.edited = newPlaylist;
   }
