@@ -5,11 +5,13 @@ import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
+import { ContentCardComponent } from './playlists/content-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlaylistsComponent
+    PlaylistsComponent,
+    ContentCardComponent
   ],
   imports: [
     BrowserModule,
