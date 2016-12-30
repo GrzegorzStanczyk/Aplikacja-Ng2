@@ -61,7 +61,8 @@ export class PlaylistsComponent implements OnInit {
 
   save(playlist) {
     console.log("Zapisano", playlist);
-    this.playlists.push(playlist)
+    let copy = Object.assign({}, playlist);
+    this.playlists.push(copy);
   }
 
   constructor() { }
