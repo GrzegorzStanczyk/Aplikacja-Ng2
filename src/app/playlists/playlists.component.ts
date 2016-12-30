@@ -59,8 +59,9 @@ export class PlaylistsComponent implements OnInit {
 
   
 
-  save(event) {
-    console.log("Zapisano", event)
+  save(playlist) {
+    console.log("Zapisano", playlist);
+    this.playlists.push(playlist)
   }
 
   constructor() { }
