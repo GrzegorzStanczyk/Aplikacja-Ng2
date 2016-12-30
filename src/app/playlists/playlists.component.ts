@@ -19,12 +19,14 @@ export class PlaylistsComponent implements OnInit {
 
   playlists = [
     {
+      id: 1,
       name: 'The best of Eduweb',
       tracks: 23,
       color: '#0000FF',
       favourite: false
     },
     {
+      id: 2,
       name: 'Angular Greatest Hits',
       tracks: 2,
       color: '#FF0000',
@@ -41,7 +43,7 @@ export class PlaylistsComponent implements OnInit {
 
   edit(playlist) {
     this.mode = "edit";
-    this.edited = playlist;
+    this.edited = Object.assign({}, playlist);
     this.selected = playlist;
   }
   
@@ -54,15 +56,21 @@ export class PlaylistsComponent implements OnInit {
       favourite: false
     };
     this.selected = newPlaylist;
-    this.edited = newPlaylist;
+    this.edited = Object.assign({}, newPlaylist);;
   }
 
   
 
   save(playlist) {
-    console.log("Zapisano", playlist);
-    let copy = Object.assign({}, playlist);
-    this.playlists.push(copy);
+    if(playlist.id) {
+      let index = this.playlists.findIndex((old_playlist)=>(
+        old_playlist.id === playlist.id
+      ))
+      this.playlists.splice(index, 1, playlist)
+    }else{
+      playlist.id = Date.now();
+      this.playlists.push(playlist);
+    }
   }
 
   constructor() { }

@@ -23,7 +23,7 @@
       </content-card>
 
       <content-card title="Playlista {{selected.name}} - EDYCJA" *ngSwitchCase="'edit'">
-        <playlist-form [playlist]="selected" (saved)="save($event)"></playlist-form>
+        <playlist-form [playlist]="edited" (saved)="save($event)"></playlist-form>
       </content-card>
 
     </div><!--ngSwitch-->
