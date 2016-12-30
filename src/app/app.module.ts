@@ -6,12 +6,14 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { PlaylistsComponent } from './playlists/playlists.component';
 import { ContentCardComponent } from './playlists/content-card.component';
+import { PlaylistFormComponent } from './playlists/playlist-form.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlaylistsComponent,
-    ContentCardComponent
+    ContentCardComponent,
+    PlaylistFormComponent
   ],
   imports: [
     BrowserModule,
