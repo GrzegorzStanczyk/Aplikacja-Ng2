@@ -46,7 +46,7 @@
     
     <div [ngSwitch] = "mode">
 
-      <content-card *ngSwitchDefault></content-card>
+      <content-card title="Playlista" content="Wybierz playlistę!!!" *ngSwitchDefault></content-card>
 
       <div *ngSwitchCase="'selected'" class="card">
         <div class="card-block">

@@ -1,25 +1,28 @@
-// `ng g c --flat -it -is ContentCard` --flat nie generuje katalogu, -it ilnie template, -is ilnie style
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'content-card',
   template: `
     <div class="card">
       <div class="card-block">
-        <h4 class="card-title">Playlista</h4>
-        <p class="card-text">Wybierz playlistę</p>
+        <h4 class="card-title">{{title}}</h4>
+        <p class="card-text">{{text}}</p>
       </div>
     </div>
   `,
-  styles: [`
-    h4 {
-      color: red;
-    }
-    `]
-    // Warianty izolacji
-  // encapsulation: ViewEncapsulation.Emulated
+  // inputs:[
+  //   'title',
+  //   'text:content'
+  // ],
+  styles: []
 })
 export class ContentCardComponent implements OnInit {
+
+  @Input()
+  title = '';
+
+  @Input('content')
+  text = '';
 
   constructor() { }
 
