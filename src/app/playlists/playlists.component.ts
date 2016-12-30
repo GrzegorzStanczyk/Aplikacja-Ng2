@@ -1,3 +1,4 @@
+// ng g c Playlists
 import { Component, OnInit } from '@angular/core';
 
 // Dekoraotr
@@ -60,7 +61,7 @@ export class PlaylistsComponent implements OnInit {
   save(event) {
     console.log("Zapisano", event)
   }
-  
+
   constructor() { }
 
   ngOnInit() {
