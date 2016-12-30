@@ -23,8 +23,9 @@
         <p>Wybierz playlistę</p>
       </content-card>
 
-      <playlist-detail [playlist]="selected" (editPlaylist)="edit($event)" *ngSwitchCase="'selected'"></playlist-detail>
-
+      <content-card title="Playlista {{selected.name}}" *ngSwitchCase="'selected'">
+        <playlist-detail [playlist]="selected" (editPlaylist)="edit($event)"></playlist-detail>
+      </content-card>
       <playlist-form [playlist]="selected" *ngSwitchCase="'edit'" ></playlist-form>
 
     </div><!--ngSwitch-->
