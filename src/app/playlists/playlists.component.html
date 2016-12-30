@@ -19,7 +19,9 @@
     
     <div [ngSwitch] = "mode">
 
-      <content-card title="Playlista" content="Wybierz playlistę!!!" *ngSwitchDefault></content-card>
+      <content-card title="Playlista" *ngSwitchDefault>
+        <p>Wybierz playlistę</p>
+      </content-card>
 
       <playlist-detail [playlist]="selected" (editPlaylist)="edit($event)" *ngSwitchCase="'selected'"></playlist-detail>
 

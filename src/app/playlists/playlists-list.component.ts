@@ -40,10 +40,10 @@ export class PlaylistsListComponent implements OnInit {
   onSelected = new EventEmitter()
 
   @Input()
-  playlists;  
+  playlists;
 
   @Input()
-  selected;  
+  selected;
 
   constructor() { }
 
