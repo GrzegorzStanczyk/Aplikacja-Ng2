@@ -1,12 +1,17 @@
 // ng g c Playlists
 import { Component, OnInit, Inject } from '@angular/core';
-import { PlaylistsService } from './playlists.service'
+import { PlaylistsService } from './playlists.service';
+import playlistsData from './playlists.data';
 
 // Dekoraotr
 @Component({
   selector: 'playlists',
   templateUrl: './playlists.component.html',
-  styleUrls: ['./playlists.component.css']
+  styleUrls: ['./playlists.component.css'],
+  providers: [
+    PlaylistsService,
+    { provide: 'PlaylistsData', useValue: playlistsData}
+  ]
 })
 export class PlaylistsComponent implements OnInit {
 
