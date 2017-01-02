@@ -1,11 +1,14 @@
+// ng g m Playlists
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { PlaylistsService } from './playlists.service'
 import { PlaylistsComponent } from './playlists.component';
 import { ContentCardComponent } from './content-card.component';
 import { PlaylistFormComponent } from './playlist-form.component';
 import { PlaylistsListComponent } from './playlists-list.component';
 import { PlaylistDetailComponent } from './playlist-detail.component';
+
 
 @NgModule({
   imports: [
@@ -21,6 +24,10 @@ import { PlaylistDetailComponent } from './playlist-detail.component';
   ],
   exports: [
     PlaylistsComponent
+  ],
+  providers: [
+    // { provide: PlaylistsService, useClass: PlaylistsService }
+    PlaylistsService
   ]
 })
 export class PlaylistsModule { }

@@ -1,5 +1,6 @@
 // ng g c Playlists
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
+import { PlaylistsService } from './playlists.service'
 
 // Dekoraotr
 @Component({
@@ -9,6 +10,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PlaylistsComponent implements OnInit {
 
+  // playlistsService: PlaylistsService; <-- za sprawą 'private angular sam tworzy te formuły'
+
+  constructor(private playlistsService:PlaylistsService) { 
+
+    // this.playlistsService = playlistsService;
+    this.playlists = this.playlistsService.getPlaylists()
+  }
+
+  ngOnInit() {
+  }
+
   selected = null;
 
   edited = {
@@ -17,22 +29,7 @@ export class PlaylistsComponent implements OnInit {
 
   mode = "none";
 
-  playlists = [
-    {
-      id: 1,
-      name: 'The best of Eduweb',
-      tracks: 23,
-      color: '#0000FF',
-      favourite: false
-    },
-    {
-      id: 2,
-      name: 'Angular Greatest Hits',
-      tracks: 2,
-      color: '#FF0000',
-      favourite: true
-    }
-  ]
+  playlists = []
 
   select(playlist) {
     // zapobiegnięcie znikania okna playlisty podczas klikania albumu na liście. 
@@ -72,10 +69,4 @@ export class PlaylistsComponent implements OnInit {
       this.playlists.push(playlist);
     }
   }
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
 }
