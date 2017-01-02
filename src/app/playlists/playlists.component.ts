@@ -10,15 +10,13 @@ import { PlaylistsService } from './playlists.service'
 })
 export class PlaylistsComponent implements OnInit {
 
-  // playlistsService: PlaylistsService; <-- za sprawą 'private angular sam tworzy te formuły'
-
   constructor(private playlistsService:PlaylistsService) { 
-
-    // this.playlistsService = playlistsService;
-    this.playlists = this.playlistsService.getPlaylists()
   }
 
+  playlists = []
+
   ngOnInit() {
+    this.playlists = this.playlistsService.getPlaylists()
   }
 
   selected = null;
@@ -28,8 +26,6 @@ export class PlaylistsComponent implements OnInit {
   }
 
   mode = "none";
-
-  playlists = []
 
   select(playlist) {
     // zapobiegnięcie znikania okna playlisty podczas klikania albumu na liście. 
@@ -46,27 +42,12 @@ export class PlaylistsComponent implements OnInit {
   
   createNew() {
     this.mode = "edit";
-    var newPlaylist = {
-      name: '',
-      tracks: 0,
-      color: '#FF0000',
-      favourite: false
-    };
+    let newPlaylist = this.playlistsService.createPlaylist();
     this.selected = newPlaylist;
-    this.edited = Object.assign({}, newPlaylist);;
-  }
-
-  
+    this.edited = newPlaylist;
+  }  
 
   save(playlist) {
-    if(playlist.id) {
-      let index = this.playlists.findIndex((old_playlist)=>(
-        old_playlist.id === playlist.id
-      ))
-      this.playlists.splice(index, 1, playlist)
-    }else{
-      playlist.id = Date.now();
-      this.playlists.push(playlist);
-    }
+    this.playlistsService.savePlaylist(playlist);
   }
 }

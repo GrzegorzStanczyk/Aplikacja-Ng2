@@ -9,6 +9,7 @@ import { PlaylistFormComponent } from './playlist-form.component';
 import { PlaylistsListComponent } from './playlists-list.component';
 import { PlaylistDetailComponent } from './playlist-detail.component';
 
+import playlistsData from './playlists.data';
 
 @NgModule({
   imports: [
@@ -27,7 +28,12 @@ import { PlaylistDetailComponent } from './playlist-detail.component';
   ],
   providers: [
     // { provide: PlaylistsService, useClass: PlaylistsService }
-    PlaylistsService
+    PlaylistsService,
+    { provide: 'PlaylistsData', useValue: playlistsData }
+    // { provide: 'PlaylistsData', useFactory: ()=>{
+    //   playlistsData.push({id: 123, name: "Test", color: 'red', favourite: false, tracks: 5})
+    //   return playlistsData;
+    // }}
   ]
 })
 export class PlaylistsModule { }
