@@ -9,8 +9,8 @@ import playlistsData from './playlists.data';
   templateUrl: './playlists.component.html',
   styleUrls: ['./playlists.component.css'],
   providers: [
-    PlaylistsService,
-    { provide: 'PlaylistsData', useValue: playlistsData}
+    // PlaylistsService,
+    // { provide: 'PlaylistsData', useValue: playlistsData}
   ]
 })
 export class PlaylistsComponent implements OnInit {
