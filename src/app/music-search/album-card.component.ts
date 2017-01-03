@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { Http, Response } from '@angular/http'
 
 @Component({
   selector: 'album-card',
@@ -10,7 +11,8 @@ import { Component, OnInit, Input } from '@angular/core';
   `,
   styles: [`
     :host() {
-      flex: 0 0 31%;
+      flex: 0 0 31% !important;
+      margin-bottom: 0.625rem !important; 
       overflow: hidden;
     }
     :host():hover .card-img-overlay {
