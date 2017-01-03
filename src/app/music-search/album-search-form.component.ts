@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'album-search-form',
   template: `
-    <form (submit)="search($event)">
+    <form (ngSubmit)="search()">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Słowa kluczowe">
         <span class="input-group-btn">
@@ -18,8 +18,8 @@ export class AlbumSearchFormComponent implements OnInit {
 
   constructor() { }
 
-  search(event) {
-    event.preventDefault();
+  search() {
+    
   }
 
   ngOnInit() {
