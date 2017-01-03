@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { PlaylistsModule } from './playlists/playlists.module';
-
+import { MusicSearchModule } from './music-search/music-search.module';
 import { AppComponent } from './app.component';
 
 @NgModule({
@@ -14,7 +14,8 @@ import { AppComponent } from './app.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    PlaylistsModule
+    PlaylistsModule,
+    MusicSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent]
