@@ -20,9 +20,7 @@ export class AlbumSearchFormComponent implements OnInit {
   constructor(private musicSearch: MusicSearchService) { }
 
   search(query) {
-    this.musicSearch.search(query, (albums)=>{
-      console.log(albums)
-    });
+    this.musicSearch.search(query)
   }
 
   ngOnInit() {

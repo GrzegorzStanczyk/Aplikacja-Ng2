@@ -18,13 +18,12 @@ export class AlbumListComponent implements OnInit {
 
   albums = [];
 
-
   constructor(private musicSearch: MusicSearchService) { }
 
   ngOnInit() {
-    this.musicSearch.getAlbums((albums)=>{
+    this.musicSearch.getAlbumsStream()
+    .subscribe((albums)=>{
       this.albums = albums;
-    })
+    })    
   }
-
 }
