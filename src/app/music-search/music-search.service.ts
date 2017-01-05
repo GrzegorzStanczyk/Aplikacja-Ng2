@@ -19,6 +19,13 @@ export class MusicSearchService {
       .startWith(this.albums);
   }
 
+  getAlbum(id) {
+    let url = `https://api.spotify.com/v1/albums/${id}`;
+
+    return this.http.get(url)
+      .map((response: Response) => response.json());
+  }
+
   search(query) {
     let url = `https://api.spotify.com/v1/search?type=album&market=PL&query=${query}`;
 
