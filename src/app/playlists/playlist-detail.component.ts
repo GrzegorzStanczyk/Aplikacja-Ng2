@@ -28,10 +28,10 @@ export class PlaylistDetailComponent implements OnInit {
     this.emiter.emit(playlist);
   }
 
-  constructor(private activedRoute: ActivatedRoute,
+  constructor(private activeRoute: ActivatedRoute,
               private playlistsService: PlaylistsService) { 
 
-                let id = parseInt(activedRoute.params['id']);
+                let id = parseInt(activeRoute.snapshot.params['id']);
                 if(id) {
                   this.playlist = this.playlistsService.getPlaylist(id)
                 }
