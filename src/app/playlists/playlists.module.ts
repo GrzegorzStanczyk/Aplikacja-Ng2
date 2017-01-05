@@ -2,6 +2,7 @@
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { routerModule } from './playlists.routing'
 import { PlaylistsService } from './playlists.service'
 import { PlaylistsComponent } from './playlists.component';
 import { ContentCardComponent } from './content-card.component';
@@ -14,7 +15,8 @@ import playlistsData from './playlists.data';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    routerModule
   ],
   declarations: [
     PlaylistsComponent,
