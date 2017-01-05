@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { PlaylistsService } from './playlists.service'
+import { ActivatedRoute, Router } from '@angular/router';
+import { PlaylistsService } from './playlists.service';
 
 @Component({
   selector: 'playlist-detail',
@@ -21,25 +21,21 @@ export class PlaylistDetailComponent implements OnInit {
 
   playlist;
 
-  @Output('editPlaylist')
-  emiter = new EventEmitter();
-
   edit(playlist) {
-    this.emiter.emit(playlist);
+    this.router.navigate(['playlist', playlist.id, 'edit'])
   }
 
   constructor(private activeRoute: ActivatedRoute,
-              private playlistsService: PlaylistsService) { 
-
-                this.activeRoute.params.subscribe(params => {
-                  let id = parseInt(params['id']);
-                  if(id) {
-                    this.playlist = this.playlistsService.getPlaylist(id)
-                  }
-                })
+              private playlistsService: PlaylistsService,
+              private router: Router) {                
               }
 
   ngOnInit() {
+    this.activeRoute.params.subscribe(params => {
+      let id = parseInt(params['id']);
+      if(id) {
+        this.playlist = this.playlistsService.getPlaylist(id)
+      }
+    })
   }
-
 }
