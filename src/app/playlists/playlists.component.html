@@ -35,7 +35,7 @@
     <playlists-list [selected]="selected" [playlists]="playlists"></playlists-list>
 
     <div class="form-group">
-      <button class="btn btn-success float-xs-right" (click)="createNew($event)">Nowa Playlista</button>
+      <button class="btn btn-success float-xs-right" [routerLink]="['new']">Nowa Playlista</button>
     </div>
 
   </div><!--col-xs-->

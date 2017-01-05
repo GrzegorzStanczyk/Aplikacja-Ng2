@@ -8,6 +8,7 @@ const routesConfig: Routes = [
   { path: 'playlist', component: PlaylistsComponent,
     children: [
         { path: '', component: PlaylistDetailComponent },
+        { path: 'new', component: PlaylistFormComponent },
         { path: ':id', component: PlaylistDetailComponent },
         { path: ':id/edit', component: PlaylistFormComponent }
     ]}  

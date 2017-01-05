@@ -49,6 +49,8 @@ export class PlaylistFormComponent implements OnInit {
       if(id) {
         let playlist =this.playlistsService.getPlaylist(id)
         this.playlist = Object.assign({}, playlist)
+      } else {
+        this.playlist = this.playlistsService.createPlaylist();
       }
     })
   }
