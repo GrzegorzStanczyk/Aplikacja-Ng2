@@ -11,8 +11,10 @@ import { PlaylistsComponent } from './playlists/playlists.component';
 
 
 const routesConfig: Routes = [
-  { path:'', component: PlaylistsComponent },
-  { path:'music', component: MusicSearchComponent }
+  { path: '', redirectTo: 'music', pathMatch: 'full' },
+  { path: 'playlist', component: PlaylistsComponent },
+  { path: 'music', component: MusicSearchComponent },
+  { path: '**', redirectTo: 'music', pathMatch: 'full' }
 ]
 
 const routerModule = RouterModule.forRoot(routesConfig, {
