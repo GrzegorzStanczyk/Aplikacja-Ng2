@@ -31,10 +31,12 @@ export class PlaylistDetailComponent implements OnInit {
   constructor(private activeRoute: ActivatedRoute,
               private playlistsService: PlaylistsService) { 
 
-                let id = parseInt(activeRoute.snapshot.params['id']);
-                if(id) {
-                  this.playlist = this.playlistsService.getPlaylist(id)
-                }
+                this.activeRoute.params.subscribe(params => {
+                  let id = parseInt(params['id']);
+                  if(id) {
+                    this.playlist = this.playlistsService.getPlaylist(id)
+                  }
+                })
               }
 
   ngOnInit() {
