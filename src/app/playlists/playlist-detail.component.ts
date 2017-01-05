@@ -1,18 +1,24 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { PlaylistsService } from './playlists.service'
 
 @Component({
   selector: 'playlist-detail',
-  template: `    
-    <p class="card-text">Wybrana playlista</p>
-    <div class="form-group">
-      <button class="btn btn-default float-xs-right" (click)="edit(playlist)">Edytuj</button>
-    </div>      
+  template: `
+    <div *ngIf="!playlist">
+      <p>Wybierz <b>playlistę</b>!</p>
+    </div>
+    <div *ngIf="playlist">      
+      <h3 class="card-title">{{playlist.name}}</h3>
+      <div class="form-group">
+        <button class="btn btn-default float-xs-right" (click)="edit(playlist)">Edytuj</button>
+      </div>
+    </div>
   `,
   styles: []
 })
 export class PlaylistDetailComponent implements OnInit {
 
-  @Input()
   playlist;
 
   @Output('editPlaylist')
@@ -22,7 +28,14 @@ export class PlaylistDetailComponent implements OnInit {
     this.emiter.emit(playlist);
   }
 
-  constructor() { }
+  constructor(private activedRoute: ActivatedRoute,
+              private playlistsService: PlaylistsService) { 
+
+                let id = parseInt(activedRoute.params['id']);
+                if(id) {
+                  this.playlist = this.playlistsService.getPlaylist(id)
+                }
+              }
 
   ngOnInit() {
   }
