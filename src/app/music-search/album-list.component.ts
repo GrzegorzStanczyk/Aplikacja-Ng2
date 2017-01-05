@@ -22,7 +22,7 @@ export class AlbumListComponent implements OnInit {
 
   ngOnInit() {
     this.musicSearch.getAlbumsStream()
-    .subscribe((albums)=>{
+    .subscribe((albums: any)=>{
       this.albums = albums;
     })    
   }
