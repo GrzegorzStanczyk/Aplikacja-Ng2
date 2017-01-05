@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MusicSearchService } from './music-search.service';
+import { ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'album-details',
@@ -18,12 +20,15 @@ import { MusicSearchService } from './music-search.service';
 })
 export class AlbumDetailsComponent implements OnInit {
 
-  constructor(private musicService: MusicSearchService) { }
+  constructor(private musicService: MusicSearchService,
+              private activatedRoute: ActivatedRoute) { }
 
   album;
 
   ngOnInit() {
-    this.musicService.getAlbum('5be3r4YaUXjyOC7kvYT33G')
+    let id = this.activatedRoute.snapshot.params['album_id'];
+    console.log(id);
+    this.musicService.getAlbum(id)
     .subscribe(album => {
       this.album = album;
     })

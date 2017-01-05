@@ -5,7 +5,8 @@ import { MusicSearchService } from './music-search.service';
   selector: 'album-list',
   template: `
     <div class="card-deck card-deck-justify">
-      <album-card [album]="album" class="card" 
+      <album-card [album]="album" class="card"
+                  [routerLink]="['/music', 'album', album.id]"
                   *ngFor="let album of albums | async"></album-card>
     </div>
   `,
