@@ -5,7 +5,8 @@ import { MusicSearchService } from './music-search.service';
   selector: 'album-list',
   template: `
     <div class="card-deck card-deck-justify">
-      <album-card [album]="album" class="card" *ngFor="let album of albums"></album-card>
+      <album-card [album]="album" class="card" 
+                  *ngFor="let album of albums | async"></album-card>
     </div>
   `,
   styles: [`
@@ -16,14 +17,11 @@ import { MusicSearchService } from './music-search.service';
 })
 export class AlbumListComponent implements OnInit {
 
-  albums = [];
+  albums;
 
   constructor(private musicSearch: MusicSearchService) { }
 
   ngOnInit() {
-    this.musicSearch.getAlbumsStream()
-    .subscribe((albums: any)=>{
-      this.albums = albums;
-    })    
+    this.albums = this.musicSearch.getAlbumsStream()
   }
 }
