@@ -5,12 +5,9 @@ import { FormGroup, FormControl } from '@angular/forms';
 @Component({
   selector: 'album-search-form',
   template: `
-    <form [formGroup]="searchForm" (ngSubmit)="search(query)">
+    <form [formGroup]="searchForm">
       <div class="input-group">
         <input type="text" formControlName="query" class="form-control" placeholder="Słowa kluczowe">
-        <span class="input-group-btn">
-          <button type="submit" class="btn btn-outline-primary">Szukaj</button>
-        </span>
       </div>
     </form>
   `,
