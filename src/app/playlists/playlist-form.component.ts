@@ -9,7 +9,6 @@ import { PlaylistsService } from './playlists.service';
         <div class="form-group">
           <label for="">Name:</label>
           <input type="text" #nameRef="ngModel" required [(ngModel)]="playlist.name" class="form-control">
-          {{nameRef.value}} {{nameRef.valid}}
         </div>
         <div class="form-group">
           <label for="">Tracks:</label>
@@ -25,7 +24,7 @@ import { PlaylistsService } from './playlists.service';
         </div>
         <div class="form-group">
           <button class="btn btn-success float-xs-right" 
-                  (click)="save(playlist)">Zapisz</button>
+                  (click)="save(nameRef.valid, playlist)">Zapisz</button>
         </div>
       </div>
   `,
@@ -35,7 +34,10 @@ export class PlaylistFormComponent implements OnInit {
 
   playlist;
 
-  save(playlist) {
+  save(valid, playlist) {
+    if(!valid) {
+      return;
+    }
     this.playlistsService.savePlaylist(playlist);
     this.router.navigate(['playlist', playlist.id]);
   }
