@@ -33,7 +33,7 @@ export class TrackListComponent implements OnInit {
     if(audio.src != track.preview_url) {
       audio.src = track.preview_url;
       audio.play();
-    } else if(audio.pause) {
+    } else if(audio.paused) {
       audio.play();
     } else {
       audio.pause();

@@ -8,7 +8,8 @@ import { PlaylistsService } from './playlists.service';
       <div *ngIf="playlist">
         <div class="form-group">
           <label for="">Name:</label>
-          <input type="text" [(ngModel)]="playlist.name" class="form-control">
+          <input type="text" #nameRef="ngModel" required [(ngModel)]="playlist.name" class="form-control">
+          {{nameRef.value}} {{nameRef.valid}}
         </div>
         <div class="form-group">
           <label for="">Tracks:</label>
