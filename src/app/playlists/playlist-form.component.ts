@@ -9,12 +9,15 @@ import { PlaylistsService } from './playlists.service';
         <form #formRef="ngForm" novalidate="true" (ngSubmit)="save(formRef.valid, playlist)">
           <div class="form-group">
             <label for="">Name:</label>
-            <input type="text" #nameRef="ngModel" required [(ngModel)]="playlist.name" name="name" class="form-control">
+            <input type="text" #nameRef="ngModel" required minlength="3" [(ngModel)]="playlist.name" name="name" class="form-control">
+            <div class="has-danger">
+              <div class="form-control-feedback" *ngIf="nameRef.errors?.required">To pole jest wymagane</div>
+              <div class="form-control-feedback" *ngIf="nameRef.errors?.minlength">To pole musi mieć przynajmniej {{nameRef.errors.minlength.requiredLength}} znaki</div>
+            </div>
           </div>
           <div class="form-group">
             <label for="">Opis:</label>
             <textarea #descriptionRef="ngModel" [(ngModel)]="playlist.description" name="description" maxlength="200" class="form-control"></textarea>
-            
           </div>
           <div class="form-group">
             <label for="">Color:</label>
