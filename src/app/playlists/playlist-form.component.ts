@@ -19,12 +19,12 @@ import { PlaylistsService } from './playlists.service';
             <label for="">Opis:</label>
             <textarea #descriptionRef="ngModel" [(ngModel)]="playlist.description" name="description" maxlength="200" class="form-control"></textarea>
           </div>
+
           <div class="form-group">
             <label> Kategoria: </label>
-            <div *ngFor="let category of categories">
-              <label class="form-check-input">
-                <input type="radio" name="category" [value]="category" [(ngModel)]="playlist.category"> {{category}} </label>
-            </div>
+            <select class="form-control" [(ngModel)]="playlist.category" name="category">
+              <option *ngFor="let category of categories" [value]="category"> {{category}} </option>
+            </select>
           </div>
           <div class="form-group">
             <label for="">Color:</label>
