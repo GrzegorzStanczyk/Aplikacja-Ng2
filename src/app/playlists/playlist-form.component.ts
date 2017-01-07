@@ -23,7 +23,7 @@ import { PlaylistsService } from './playlists.service';
             <label> Kategoria: </label>
             <div *ngFor="let category of categories">
               <label class="form-check-input">
-                <input type="radio" name="category" [(ngModel)]="playlist.category" [value]="category"> {{category}} </label>
+                <input type="radio" name="category" [value]="category" [(ngModel)]="playlist.category"> {{category}} </label>
             </div>
           </div>
           <div class="form-group">
