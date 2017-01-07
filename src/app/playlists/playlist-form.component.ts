@@ -38,7 +38,6 @@ import { PlaylistsService } from './playlists.service';
             <button class="btn btn-success float-xs-right" type="submit">Zapisz</button>
           </div>
         </form>
-        {{ playlist | json }}
       </div>
   `,
   styles: [`

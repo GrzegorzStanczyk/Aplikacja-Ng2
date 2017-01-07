@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { PlaylistsService, Playlist } from './playlists.service'
 
 @Component({
   selector: 'playlists-list',
@@ -40,27 +41,20 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class PlaylistsListComponent implements OnInit {
 
-  @Output('selected')
-  onSelected = new EventEmitter()
+  constructor(private playlistsService: PlaylistsService ) { }
 
-  @Input()
-  playlists;
-
-  @Input()
-  selected;
-
-  constructor() { }
+  playlists =[];
 
   ngOnInit() {
+    this.playlistsService.getPlaylistsStream()
+    .subscribe((playlists: Playlist[]) => {
+      this.playlists = playlists;
+    })
   }
 
   getPlaylistStyle(playlist) {
     return {
       borderBottomColor: playlist.color
     }
-  }
-
-  select(playlist) {
-    this.onSelected.emit(playlist);
   }
 }
