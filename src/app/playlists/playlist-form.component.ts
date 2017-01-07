@@ -7,17 +7,10 @@ import { PlaylistsService } from './playlists.service';
   template: `
       <div *ngIf="playlist">
         <form #formRef="ngForm" novalidate="true" (ngSubmit)="save(formRef.valid, playlist)">
-          <div> valid <b>{{formRef.valid}}</b></div>
-          <div> invalid <b>{{formRef.invalid}}</b></div>
-          <div> touched <b>{{formRef.touched}}</b></div>
-          <div> untouched <b>{{formRef.untouched}}</b></div>
-          <div> dirty <b>{{formRef.dirty}}</b></div>
-          <div> pristine <b>{{formRef.pristine}}</b></div>
-          <div> submitted <b>{{formRef.submitted}}</b></div>
           <div class="form-group">
             <label for="">Name:</label>
             <input type="text" #nameRef="ngModel" required minlength="3" [(ngModel)]="playlist.name" name="name" class="form-control">
-            <div class="has-danger">
+            <div class="has-danger" *ngIf="nameRef.touched || nameRef.dirty || formRef.submitted">
               <div class="form-control-feedback" *ngIf="nameRef.errors?.required">To pole jest wymagane</div>
               <div class="form-control-feedback" *ngIf="nameRef.errors?.minlength">To pole musi mieć przynajmniej {{nameRef.errors.minlength.requiredLength}} znaki</div>
             </div>
