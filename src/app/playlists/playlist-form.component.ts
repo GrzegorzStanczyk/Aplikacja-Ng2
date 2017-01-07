@@ -20,6 +20,13 @@ import { PlaylistsService } from './playlists.service';
             <textarea #descriptionRef="ngModel" [(ngModel)]="playlist.description" name="description" maxlength="200" class="form-control"></textarea>
           </div>
           <div class="form-group">
+            <label> Kategoria: </label>
+            <div *ngFor="let category of categories">
+              <label class="form-check-input">
+                <input type="radio" name="category" [(ngModel)]="playlist.category" [value]="category"> {{category}} </label>
+            </div>
+          </div>
+          <div class="form-group">
             <label for="">Color:</label>
             <input type="color" [(ngModel)]="playlist.color" name="color">          
           </div>
@@ -31,6 +38,7 @@ import { PlaylistsService } from './playlists.service';
             <button class="btn btn-success float-xs-right" type="submit">Zapisz</button>
           </div>
         </form>
+        {{ playlist | json }}
       </div>
   `,
   styles: [`
@@ -45,6 +53,8 @@ import { PlaylistsService } from './playlists.service';
 export class PlaylistFormComponent implements OnInit {
 
   playlist;
+
+  categories = ['Filmowa', 'Rockowa', 'Inne'];
 
   save(valid, playlist) {
     if(!valid) {
