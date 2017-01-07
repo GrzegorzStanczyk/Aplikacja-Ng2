@@ -6,7 +6,7 @@ import { PlaylistsService } from './playlists.service';
   selector: 'playlist-form',
   template: `
       <div *ngIf="playlist">
-        <form #formRef="ngForm" novalidate="true">
+        <form #formRef="ngForm" novalidate="true" (ngSubmit)="save(formRef.valid, playlist)">
           <div class="form-group">
             <label for="">Name:</label>
             <input type="text" #nameRef="ngModel" required [(ngModel)]="playlist.name" name="name" class="form-control">
@@ -25,8 +25,7 @@ import { PlaylistsService } from './playlists.service';
               <input type="checkbox" [(ngModel)]="playlist.favourite" name="favourite"> Ulubiona</label>
           </div>
           <div class="form-group">
-            <button class="btn btn-success float-xs-right" 
-                    (click)="save(formRef.valid, playlist)">Zapisz</button>
+            <button class="btn btn-success float-xs-right" type="submit">Zapisz</button>
           </div>
         </form>
       </div>
