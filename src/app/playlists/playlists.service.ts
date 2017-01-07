@@ -40,19 +40,21 @@ export class PlaylistsService {
   }
 
   getPlaylist(id) {
-    return this.playlists.find(playlist => playlist.id === id)
+    return this.http.get(this.server_url + id)
+    .map(response => response.json())
   }
 
   savePlaylist(playlist) {
+    let request;
     if(playlist.id) {
-      let index = this.playlists.findIndex((old_playlist)=>(
-        old_playlist.id === playlist.id
-      ))
-      this.playlists.splice(index, 1, playlist)
+      request = this.http.put(this.server_url + playlist.id, playlist)
     }else{
-      playlist.id = Date.now();
-      this.playlists.push(playlist);
+      request = this.http.post(this.server_url, playlist)
     }
+      return request.map(response => response.json())
+      .do(playlist =>{
+        this.getPlaylists()
+      })
   }
 
   createPlaylist(): Playlist {

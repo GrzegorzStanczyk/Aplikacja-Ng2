@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { PlaylistsService } from './playlists.service';
+import { PlaylistsService, Playlist } from './playlists.service';
 
 @Component({
   selector: 'playlist-form',
@@ -51,7 +51,7 @@ import { PlaylistsService } from './playlists.service';
 })
 export class PlaylistFormComponent implements OnInit {
 
-  playlist;
+  playlist: Playlist;
 
   categories = ['Filmowa', 'Rockowa', 'Inne'];
 
@@ -59,8 +59,10 @@ export class PlaylistFormComponent implements OnInit {
     if(!valid) {
       return;
     }
-    this.playlistsService.savePlaylist(playlist);
-    this.router.navigate(['playlist', playlist.id]);
+    this.playlistsService.savePlaylist(playlist)
+    .subscribe(playlist => {
+      this.router.navigate(['playlist', playlist.id]);
+    })
   }
 
   constructor(private activeRoute: ActivatedRoute,
@@ -71,8 +73,11 @@ export class PlaylistFormComponent implements OnInit {
     this.activeRoute.params.subscribe(params => {
       let id = parseInt(params['id']);
       if(id) {
-        let playlist =this.playlistsService.getPlaylist(id)
-        this.playlist = Object.assign({}, playlist)
+        this.playlistsService.getPlaylist(id)
+            .subscribe((playlist: Playlist) => {
+              this.playlist = Object.assign({}, playlist)
+            })
+        
       } else {
         this.playlist = this.playlistsService.createPlaylist();
       }
