@@ -30,11 +30,10 @@
           <!--ngStyle modyfikuje style klas-->
           <tr class="" 
           [ngClass]="{'table-active': selected == playlist, 'playlist-row': true}" 
-          [ngStyle]="{borderBottomColor: playlist.color, color: hovered ? playlist.color : '', fontSize: hovered ? playlist.size : ''}"
+          [ngStyle]="{borderBottomColor: playlist.color, color: hovered ? playlist.color : '', fontSize: hovered ? playlist.size : '', background: hovered ? playlist.color2 : ''}"
           (click)="selected = playlist"
           (mouseenter)="hovered = true"
-          (mouseleave)="hovered = false"
-          >
+          (mouseleave)="hovered = false">
             <td> 1 </td>
             <td> {{playlist.name}} </td>
             <td> 23 </td>
@@ -43,7 +42,7 @@
               <input type="checkbox" 
               [checked]="playlist.favourite" 
               (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
-            </td>
+            </td>            
           </tr>
           <tr (click)="selected = null"
           [class.table-active]="selected == null">
@@ -79,6 +78,16 @@
           <div class="form-group">
             <label for="">
               <input type="checkbox" [checked]="playlist.favourite" (change)="playlist.favourite = $event.target.checked"> Ulubiona</label>
+          </div>
+          <div class="form-control">
+            <div>
+              <input type="checkbox" [(ngModel)]="show" name="show" id="ngIf">ngIf 
+              <input type="text" *ngIf="!show">
+            </div>
+            <div>
+              <input type="checkbox" [(ngModel)]="hidden" name="hidden" id="hidden">hidden
+              <input type="text" [hidden]="hidden">
+            </div>
           </div>
           <div class="form-group">
             <button class="btn btn-success float-xs-right" (click)="save($event)">Zapisz</button>

@@ -12,6 +12,7 @@ export class AppComponent {
     name: 'The best of Eduweb',
     tracks: 23,
     color: '#FF0000',
+    color2: '#FFEEAA',
     favourite: true,
     size: `${130}%`
   }
