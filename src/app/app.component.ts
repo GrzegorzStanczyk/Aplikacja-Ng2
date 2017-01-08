@@ -19,7 +19,7 @@ export class AppComponent {
 
   selected = null;
   mouseenter = null;
-  
+  show = "data";
 
   save(event) {
     console.log('Zapisano', event);
