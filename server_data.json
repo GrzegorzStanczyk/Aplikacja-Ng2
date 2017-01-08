@@ -3,14 +3,336 @@
     {
       "id": 1,
       "name": "The best of Eduweb",
-      "tracks": 23,
+      "tracks": [
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/6UEvetDZ4veYVgjA7RYrdI"
+              },
+              "href": "https://api.spotify.com/v1/artists/6UEvetDZ4veYVgjA7RYrdI",
+              "id": "6UEvetDZ4veYVgjA7RYrdI",
+              "name": "Chris Daughtry",
+              "type": "artist",
+              "uri": "spotify:artist:6UEvetDZ4veYVgjA7RYrdI"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5VurrlofBgNtJuKgSAdo67"
+              },
+              "href": "https://api.spotify.com/v1/artists/5VurrlofBgNtJuKgSAdo67",
+              "id": "5VurrlofBgNtJuKgSAdo67",
+              "name": "Marti Frederiksen",
+              "type": "artist",
+              "uri": "spotify:artist:5VurrlofBgNtJuKgSAdo67"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5P5FTygHyx2G57oszR3Wot"
+              },
+              "href": "https://api.spotify.com/v1/artists/5P5FTygHyx2G57oszR3Wot",
+              "id": "5P5FTygHyx2G57oszR3Wot",
+              "name": "Daughtry",
+              "type": "artist",
+              "uri": "spotify:artist:5P5FTygHyx2G57oszR3Wot"
+            }
+          ],
+          "available_markets": [
+            "AD",
+            "AR",
+            "AU",
+            "BE",
+            "BG",
+            "BO",
+            "BR",
+            "CA",
+            "CH",
+            "CL",
+            "CO",
+            "CR",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "DO",
+            "EC",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "GT",
+            "HK",
+            "HN",
+            "HU",
+            "ID",
+            "IE",
+            "IS",
+            "IT",
+            "JP",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MC",
+            "MT",
+            "MX",
+            "MY",
+            "NI",
+            "NL",
+            "NO",
+            "NZ",
+            "PA",
+            "PE",
+            "PH",
+            "PL",
+            "PT",
+            "PY",
+            "SE",
+            "SG",
+            "SK",
+            "SV",
+            "TR",
+            "TW",
+            "UY"
+          ],
+          "disc_number": 1,
+          "duration_ms": 262226,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/5WFBCDonCyPwvnQkYF5SrP"
+          },
+          "href": "https://api.spotify.com/v1/tracks/5WFBCDonCyPwvnQkYF5SrP",
+          "id": "5WFBCDonCyPwvnQkYF5SrP",
+          "name": "Drown In You",
+          "preview_url": "https://p.scdn.co/mp3-preview/15b94ef1260977cd454fd9ab04f2b1d758a01314?cid=null",
+          "track_number": 9,
+          "type": "track",
+          "uri": "spotify:track:5WFBCDonCyPwvnQkYF5SrP"
+        },
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7iwdqqkOtltQUoNeOBZgAR"
+              },
+              "href": "https://api.spotify.com/v1/artists/7iwdqqkOtltQUoNeOBZgAR",
+              "id": "7iwdqqkOtltQUoNeOBZgAR",
+              "name": "Toby Butler",
+              "type": "artist",
+              "uri": "spotify:artist:7iwdqqkOtltQUoNeOBZgAR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/69yCD4Jh0p9vCdm6WbhWx6"
+              },
+              "href": "https://api.spotify.com/v1/artists/69yCD4Jh0p9vCdm6WbhWx6",
+              "id": "69yCD4Jh0p9vCdm6WbhWx6",
+              "name": "Liela Moss",
+              "type": "artist",
+              "uri": "spotify:artist:69yCD4Jh0p9vCdm6WbhWx6"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5lModM3s3qlPQKYjtwWuXD"
+              },
+              "href": "https://api.spotify.com/v1/artists/5lModM3s3qlPQKYjtwWuXD",
+              "id": "5lModM3s3qlPQKYjtwWuXD",
+              "name": "The Duke Spirit",
+              "type": "artist",
+              "uri": "spotify:artist:5lModM3s3qlPQKYjtwWuXD"
+            }
+          ],
+          "available_markets": [
+            "AD",
+            "AR",
+            "AU",
+            "BE",
+            "BG",
+            "BO",
+            "BR",
+            "CA",
+            "CH",
+            "CL",
+            "CO",
+            "CR",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "DO",
+            "EC",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "GT",
+            "HK",
+            "HN",
+            "HU",
+            "ID",
+            "IE",
+            "IS",
+            "IT",
+            "JP",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MC",
+            "MT",
+            "MX",
+            "MY",
+            "NI",
+            "NL",
+            "NO",
+            "NZ",
+            "PA",
+            "PE",
+            "PH",
+            "PL",
+            "PT",
+            "PY",
+            "SE",
+            "SG",
+            "SK",
+            "SV",
+            "TR",
+            "TW",
+            "UY"
+          ],
+          "disc_number": 1,
+          "duration_ms": 152626,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/3QkCAFX6y8xoyxAEq49FnO"
+          },
+          "href": "https://api.spotify.com/v1/tracks/3QkCAFX6y8xoyxAEq49FnO",
+          "id": "3QkCAFX6y8xoyxAEq49FnO",
+          "name": "Creature",
+          "preview_url": "https://p.scdn.co/mp3-preview/ff46f35c58434b8f1fc5d3ebc8f3529198a159e1?cid=null",
+          "track_number": 3,
+          "type": "track",
+          "uri": "spotify:track:3QkCAFX6y8xoyxAEq49FnO"
+        },
+        {
+          "artists": [
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/7iwdqqkOtltQUoNeOBZgAR"
+              },
+              "href": "https://api.spotify.com/v1/artists/7iwdqqkOtltQUoNeOBZgAR",
+              "id": "7iwdqqkOtltQUoNeOBZgAR",
+              "name": "Toby Butler",
+              "type": "artist",
+              "uri": "spotify:artist:7iwdqqkOtltQUoNeOBZgAR"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/69yCD4Jh0p9vCdm6WbhWx6"
+              },
+              "href": "https://api.spotify.com/v1/artists/69yCD4Jh0p9vCdm6WbhWx6",
+              "id": "69yCD4Jh0p9vCdm6WbhWx6",
+              "name": "Liela Moss",
+              "type": "artist",
+              "uri": "spotify:artist:69yCD4Jh0p9vCdm6WbhWx6"
+            },
+            {
+              "external_urls": {
+                "spotify": "https://open.spotify.com/artist/5lModM3s3qlPQKYjtwWuXD"
+              },
+              "href": "https://api.spotify.com/v1/artists/5lModM3s3qlPQKYjtwWuXD",
+              "id": "5lModM3s3qlPQKYjtwWuXD",
+              "name": "The Duke Spirit",
+              "type": "artist",
+              "uri": "spotify:artist:5lModM3s3qlPQKYjtwWuXD"
+            }
+          ],
+          "available_markets": [
+            "AD",
+            "AR",
+            "AU",
+            "BE",
+            "BG",
+            "BO",
+            "BR",
+            "CA",
+            "CH",
+            "CL",
+            "CO",
+            "CR",
+            "CY",
+            "CZ",
+            "DE",
+            "DK",
+            "DO",
+            "EC",
+            "EE",
+            "ES",
+            "FI",
+            "FR",
+            "GB",
+            "GR",
+            "GT",
+            "HK",
+            "HN",
+            "HU",
+            "ID",
+            "IE",
+            "IS",
+            "IT",
+            "JP",
+            "LI",
+            "LT",
+            "LU",
+            "LV",
+            "MC",
+            "MT",
+            "MX",
+            "MY",
+            "NI",
+            "NL",
+            "NO",
+            "NZ",
+            "PA",
+            "PE",
+            "PH",
+            "PL",
+            "PT",
+            "PY",
+            "SE",
+            "SG",
+            "SK",
+            "SV",
+            "TR",
+            "TW",
+            "UY"
+          ],
+          "disc_number": 1,
+          "duration_ms": 152626,
+          "explicit": false,
+          "external_urls": {
+            "spotify": "https://open.spotify.com/track/3QkCAFX6y8xoyxAEq49FnO"
+          },
+          "href": "https://api.spotify.com/v1/tracks/3QkCAFX6y8xoyxAEq49FnO",
+          "id": "3QkCAFX6y8xoyxAEq49FnO",
+          "name": "Creature",
+          "preview_url": "https://p.scdn.co/mp3-preview/ff46f35c58434b8f1fc5d3ebc8f3529198a159e1?cid=null",
+          "track_number": 3,
+          "type": "track",
+          "uri": "spotify:track:3QkCAFX6y8xoyxAEq49FnO"
+        }
+      ],
       "color": "#0000FF",
       "favourite": 1
     },
     {
       "id": 2,
       "name": "Angular Greatest Hits vol.3!",
-      "tracks": 2,
+      "tracks": [],
       "color": "#FF0000",
       "favourite": 0
     }

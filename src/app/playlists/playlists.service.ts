@@ -20,6 +20,15 @@ export class PlaylistsService {
 
   playlists = []
 
+  addToPlaylist(playlistId, track){
+    let playlist = this.playlists.find(playlist => playlist.id == playlistId)
+    playlist.tracks.push(track);
+    this.savePlaylist(playlist)
+      .subscribe(()=>{
+        
+      })
+  }
+
   getPlaylists() {
     return this.http.get(this.server_url)
               .map(response => response.json())

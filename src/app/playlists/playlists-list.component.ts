@@ -22,7 +22,7 @@ import { PlaylistsService, Playlist } from './playlists.service'
         [routerLink]="[playlist.id]">
           <td> {{i+1}}. </td>
           <td> {{playlist.name}} </td>
-          <td> {{playlist.tracks}} </td>
+          <td> {{playlist.tracks.length}} </td>
           <td>
             <label for="">
             <input type="checkbox" 
